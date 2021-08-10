@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentTopList">
+
+    <fragment
+        android:id="@+id/fragmentTopList"
+        android:name="com.appsforlife.cryptocourse.fragments.FragmentTopList"
+        android:label="fragment_top_list"
+        tools:layout="@layout/fragment_top_list" />
+    <fragment
+        android:id="@+id/fragmentNews"
+        android:name="com.appsforlife.cryptocourse.fragments.FragmentNews"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" />
+</navigation>
