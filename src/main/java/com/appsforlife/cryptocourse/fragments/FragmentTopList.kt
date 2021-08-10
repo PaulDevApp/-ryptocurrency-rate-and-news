@@ -43,7 +43,7 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
         viewModel.priceList.observe(viewLifecycleOwner, {
-            adapter.coinInfoList = it
+            adapter.setData(it)
             if (flag == 1) {
                 binding.rvTopList.layoutAnimation = animation
                 flag = 2
