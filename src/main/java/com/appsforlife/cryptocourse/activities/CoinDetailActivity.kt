@@ -36,6 +36,42 @@ class CoinDetailActivity : AppCompatActivity() {
         })
     }
 
+    //    private fun setPreviewLink(url: String) {
+//        val disposable = getJSOUPContent(url)
+//            ?.subscribeOn(Schedulers.newThread())
+//            ?.observeOn(AndroidSchedulers.mainThread())
+//            ?.subscribe(
+//                { result: Document? ->
+//                    if (result != null) {
+//                        val metaTags = result.getElementsByTag("meta")
+//                        for (element in metaTags) {
+//                            when (element.attr("property")) {
+//                                "og:title" -> {
+//                                    binding.tvSiteName.text = element.attr("content")
+//                                    if (!TextUtils.isEmpty(binding.tvSiteName.text)) {
+//                                        binding.tvSiteName.visibility = View.VISIBLE
+//                                    }
+//                                }
+//                                "og:description" -> {
+//                                    binding.tvSiteDescription.text = element.attr("content")
+//                                    if (!TextUtils.isEmpty(binding.tvSiteDescription.text)) {
+//                                        binding.tvSiteDescription.visibility = View.VISIBLE
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    } else {
+//                        binding.tvSiteDescription.visibility = View.GONE
+//                        binding.tvSiteName.visibility = View.GONE
+//                    }
+//                },
+//                {
+//                    binding.tvSiteDescription.visibility = View.GONE
+//                    binding.tvSiteName.visibility = View.GONE
+//                })!!
+//    }
+
+
     companion object {
         private const val EXTRA_FROM_SYMBOL = "fSym"
 

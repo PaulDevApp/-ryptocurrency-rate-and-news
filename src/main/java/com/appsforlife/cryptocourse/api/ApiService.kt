@@ -2,7 +2,7 @@ package com.appsforlife.cryptocourse.api
 
 import com.appsforlife.cryptocourse.pojo.CoinInfoListOfData
 import com.appsforlife.cryptocourse.pojo.CoinPriceInfoRawData
-import io.reactivex.Single
+import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -19,7 +19,7 @@ interface ApiService {
     @GET("pricemultifull")
     fun getFullPriceList(
         @Query(QUERY_PARAM_API_KEY) apiKey: String = API_KEY,
-        @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String,
+        @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String?,
         @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY
     ): Single<CoinPriceInfoRawData>
 
