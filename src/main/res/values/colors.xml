@@ -8,5 +8,10 @@
     <color name="colorBackgroundNight">#091301</color>
     <color name="colorSurfaceDay">#C5D5BA</color>
     <color name="colorSurfaceNight">#193303</color>
-    <color name="colorAccent">#E7C554</color>
+    <color name="colorAccentDay">#476C1B</color>
+    <color name="colorAccentNight">#E7C554</color>
+    <color name="colorGreen">#1A6A00</color>
+    <color name="colorRed">#A53D58</color>
+    <color name="colorBackgroundLoadingDay">#BFD0DAC9</color>
+    <color name="colorBackgroundLoadingNight">#BF091301</color>
 </resources>

@@ -74,7 +74,7 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation "androidx.room:room-ktx:2.3.0"
 
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.airbnb.android:lottie:3.7.2'
 
     androidTestImplementation 'androidx.test:runner:1.4.0'
     implementation 'androidx.recyclerview:recyclerview:1.2.1'

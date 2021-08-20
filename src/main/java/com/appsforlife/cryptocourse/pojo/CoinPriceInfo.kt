@@ -1,19 +1,14 @@
 package com.appsforlife.cryptocourse.pojo
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.appsforlife.cryptocourse.utils.Constants
-import com.appsforlife.cryptocourse.utils.setTime
 import com.google.gson.annotations.SerializedName
 
 
-@Entity(tableName = "coin_info_list")
 data class CoinPriceInfo(
     @SerializedName("TYPE")
     val type: String?,
     @SerializedName("MARKET")
     val market: String?,
-    @PrimaryKey
     @SerializedName("FROMSYMBOL")
     val fromSymbol: String,
     @SerializedName("TOSYMBOL")
@@ -23,7 +18,7 @@ data class CoinPriceInfo(
     @SerializedName("PRICE")
     val price: String?,
     @SerializedName("LASTUPDATE")
-    val lastUpdate: Long?,
+    val lastUpdate: String?,
     @SerializedName("LASTVOLUME")
     val lastVolume: String?,
     @SerializedName("LASTVOLUMETO")
@@ -72,6 +67,8 @@ data class CoinPriceInfo(
     val changePCT24Hour: String?,
     @SerializedName("CHANGEDAY")
     val changeDay: String?,
+    @SerializedName("CHANGEHOUR")
+    val changeHour: String?,
     @SerializedName("CHANGEPCTDAY")
     val changePCTDay: String?,
     @SerializedName("SUPPLY")
@@ -89,9 +86,9 @@ data class CoinPriceInfo(
     @SerializedName("IMAGEURL")
     val imageUrl: String?
 ) {
-    fun getTime(): String {
-        return setTime(lastUpdate)
-    }
+//    fun getTime(): String {
+//        return setTime(lastUpdate)
+//    }
 
     fun getFullImageURL(): String {
         return Constants.BASE_IMAGE_URL + imageUrl

@@ -1,7 +1,7 @@
 package com.appsforlife.cryptocourse.listeners
 
-import com.appsforlife.cryptocourse.pojo.CoinPriceInfo
+import android.view.View
 
 interface CoinClickListener {
-    fun onCoinClick(coinPriceInfo: CoinPriceInfo)
+    fun onCoinClick(id: String, view:View)
 }

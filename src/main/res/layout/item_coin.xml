@@ -2,60 +2,130 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp">
+    android:layout_margin="5dp"
+    app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_main"
+        android:id="@+id/cl_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/selectableItemBackground"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:padding="2dp">
+        android:background="?attr/colorSurface"
+        android:transitionName="coin">
 
         <ImageView
-            android:id="@+id/iv_logo"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/iv_item_logo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:contentDescription="@string/app_name"
+            android:padding="2dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_bitcoin" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_symbols"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="13sp"
-            app:layout_constraintBaseline_toTopOf="@id/tv_price"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="BTC/USD" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_item_logo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="85dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_item_desc"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.4" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_price"
+            android:id="@+id/tv_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="4dp"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:text="5433.79" />
+            app:layout_constraintStart_toEndOf="@id/guideline_item_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="BTS" />
 
         <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_time"
+            android:id="@+id/tv_proof_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_time_update"
-            android:drawablePadding="2dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/proof_type"
             android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_logo"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_name" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_proof_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_proof_label"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_desc"
+            tools:text="Proof" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_launch_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/launch"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_logo"
+            app:layout_constraintTop_toBottomOf="@id/tv_proof_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_launch_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_item_launch_label"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_desc"
+            tools:text="2015-07-30" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_algorithm_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/algorithm"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_logo"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_launch_label" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_algorithm_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_algorithm_label"
+            app:layout_constraintStart_toEndOf="@id/guideline_item_desc"
+            tools:text="SHA-256" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_document_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:textSize="11sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:text="03:15:44" />
+            tools:text="Webpagecoinp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_document_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="@string/document_type"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_item_document_desc"
+            app:layout_constraintEnd_toStartOf="@id/tv_item_document_desc" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

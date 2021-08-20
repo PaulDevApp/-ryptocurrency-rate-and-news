@@ -3,4 +3,23 @@
     <string name="top_list">Top 100</string>
     <string name="last_news">Last news</string>
     <string name="symbols">%s / %s</string>
+    <string name="launch">Launch:</string>
+    <string name="algorithm">Algorithm:</string>
+    <string name="proof_type">Proof type:</string>
+    <string name="document_type">Doc.type:</string>
+    <string name="open_day">Open day</string>
+    <string name="high_day">High day</string>
+    <string name="low_day">Low day</string>
+    <string name="open_hour">Open hour</string>
+    <string name="high_hour">High hour</string>
+    <string name="low_hour">Low hour</string>
+    <string name="open_24_hour">Open 24 hour</string>
+    <string name="high_hour_24">High hour 24</string>
+    <string name="low_24_hour">Low 24 hour</string>
+    <string name="change_day">Change day</string>
+    <string name="change_hour">Change hour</string>
+    <string name="change_24_hour">Change 24 hour</string>
+    <string name="volume_day">Volume day</string>
+    <string name="volume_hour">Volume hour</string>
+    <string name="volume_24_hour">Volume 24 hour</string>
 </resources>

@@ -1,17 +1,17 @@
 package com.appsforlife.cryptocourse.api
 
 import com.appsforlife.cryptocourse.pojo.CoinInfoListOfData
-import com.appsforlife.cryptocourse.pojo.CoinPriceInfoRawData
+import com.appsforlife.cryptocourse.pojo.CoinPriceInfoDisplayData
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface ApiService {
 
-    @GET("top/totalvolfull")
+    @GET("top/mktcapfull")
     fun getTopCoins(
         @Query(QUERY_PARAM_API_KEY) apiKey: String = API_KEY,
-        @Query(QUERY_PARAM_LIMIT) limit: Int = 10,
+        @Query(QUERY_PARAM_LIMIT) limit: Int = 100,
         @Query(QUERY_PARAM_TO_SYMBOL) tSym: String = CURRENCY
     ): Single<CoinInfoListOfData>
 
@@ -21,7 +21,7 @@ interface ApiService {
         @Query(QUERY_PARAM_API_KEY) apiKey: String = API_KEY,
         @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String?,
         @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY
-    ): Single<CoinPriceInfoRawData>
+    ): Single<CoinPriceInfoDisplayData>
 
     companion object {
         private const val API_KEY =
