@@ -27,7 +27,7 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun loadTopCoins() {
         val disposable = ApiFactory.apiService.getTopCoins()
-            .map { it -> it.datumCoins?.map { it.coinInfo } }
+            .map { it -> it.datumCoins.map { it.coinInfo } }
             .subscribeOn(Schedulers.io())
             .retry()
             .subscribe({
