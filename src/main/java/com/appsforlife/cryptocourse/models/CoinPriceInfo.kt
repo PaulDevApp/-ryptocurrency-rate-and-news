@@ -1,6 +1,5 @@
-package com.appsforlife.cryptocourse.pojo
+package com.appsforlife.cryptocourse.models
 
-import com.appsforlife.cryptocourse.utils.Constants
 import com.google.gson.annotations.SerializedName
 
 
@@ -47,6 +46,8 @@ data class CoinPriceInfo(
     val low24Hour: String?,
     @SerializedName("LASTMARKET")
     val lastMarket: String?,
+    @SerializedName("CHANGEPCTHOUR")
+    val changePctHour: String?,
     @SerializedName("VOLUMEHOUR")
     val volumeHour: String?,
     @SerializedName("VOLUMEHOURTO")
@@ -82,15 +83,5 @@ data class CoinPriceInfo(
     @SerializedName("TOTALTOPTIERVOLUME24H")
     val totalTopTierVolume24Hour: String?,
     @SerializedName("TOTALTOPTIERVOLUME24HTO")
-    val totalTopTierVolume24HourTo: String?,
-    @SerializedName("IMAGEURL")
-    val imageUrl: String?
-) {
-//    fun getTime(): String {
-//        return setTime(lastUpdate)
-//    }
-
-    fun getFullImageURL(): String {
-        return Constants.BASE_IMAGE_URL + imageUrl
-    }
-}
+    val totalTopTierVolume24HourTo: String?
+)

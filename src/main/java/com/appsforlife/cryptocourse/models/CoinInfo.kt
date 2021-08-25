@@ -1,4 +1,4 @@
-package com.appsforlife.cryptocourse.pojo
+package com.appsforlife.cryptocourse.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -7,11 +7,11 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "coin_info_list")
 data class CoinInfo(
 
+    @PrimaryKey
     @SerializedName("Id")
     val id: String,
-    @PrimaryKey
     @SerializedName("Name")
-    val name: String,
+    val name: String? = null,
     @SerializedName("FullName")
     val fullName: String? = null,
     @SerializedName("ImageUrl")

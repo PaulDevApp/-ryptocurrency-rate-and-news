@@ -1,9 +1,9 @@
 package com.appsforlife.cryptocourse.utils
 
 import androidx.recyclerview.widget.DiffUtil
-import com.appsforlife.cryptocourse.pojo.CoinInfo
+import com.appsforlife.cryptocourse.models.CoinInfo
 
-class ItemDiffUtil(
+class CoinDiffUtil(
     private val oldList: List<CoinInfo>,
     private val newList: List<CoinInfo>
 ) : DiffUtil.Callback() {

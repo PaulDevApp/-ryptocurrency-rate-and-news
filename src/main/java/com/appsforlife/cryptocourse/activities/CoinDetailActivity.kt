@@ -2,19 +2,22 @@ package com.appsforlife.cryptocourse.activities
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
 import androidx.lifecycle.ViewModelProvider
+import androidx.palette.graphics.Palette
 import com.appsforlife.cryptocourse.api.ApiFactory
 import com.appsforlife.cryptocourse.databinding.ActivityCoinDetailBinding
 import com.appsforlife.cryptocourse.databinding.CoinFullPriceBinding
 import com.appsforlife.cryptocourse.databinding.CoinMainDetailBinding
 import com.appsforlife.cryptocourse.databinding.LinkViewLayoutBinding
-import com.appsforlife.cryptocourse.pojo.CoinPriceInfo
-import com.appsforlife.cryptocourse.pojo.CoinPriceInfoDisplayData
+import com.appsforlife.cryptocourse.models.CoinPriceInfo
+import com.appsforlife.cryptocourse.models.CoinPriceInfoDisplayData
 import com.appsforlife.cryptocourse.utils.getJSOUPContent
 import com.appsforlife.cryptocourse.viewmodel.CoinViewModel
 import com.bumptech.glide.Glide
@@ -23,7 +26,6 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
-
 
 class CoinDetailActivity : AppCompatActivity() {
 
@@ -57,7 +59,7 @@ class CoinDetailActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
 
-        viewModel.getDetailInfo(id).observe(this, {
+        viewModel.getDetailInfo(id).observe(this, { it ->
             with(mainDetailBinding) {
                 binding.toolBarDetail.title = it.fullName
                 tvName.text = it.name
@@ -67,10 +69,24 @@ class CoinDetailActivity : AppCompatActivity() {
                 tvDocumentDesc.text = it.documentType
             }
             Glide.with(this).load(it.getFullImageURL()).into(mainDetailBinding.ivLogo)
-            it.name?.let { name -> getFullListPrice(name) }
             linkViewBinding.tvLinkUrl.text = it.getFullCoinUrl()
+            it.name?.let { name -> getFullListPrice(name) }
             it.url?.let { _ -> setPreviewLink(it.getFullCoinUrl()) }
+
+            mainDetailBinding.ivLogo.drawable?.let {
+                val bitmap = (it as BitmapDrawable).bitmap
+                createPalette(bitmap)
+            }
         })
+    }
+
+    private fun createPalette(bitmap: Bitmap) {
+        Palette.from(bitmap).generate { palette ->
+            val swatch = palette?.vibrantSwatch
+            if (swatch != null) {
+                mainDetailBinding.tvName.setTextColor(swatch.rgb)
+            }
+        }
     }
 
     private fun getFullListPrice(fSym: String) {
@@ -105,6 +121,14 @@ class CoinDetailActivity : AppCompatActivity() {
                         tvVolumeDayDesc.text = it.volumeDay
                         tvVolumeHourDesc.text = it.volumeHour
                         tvVolume24hourDesc.text = it.volume24Hour
+                        tvChangePctDayDesc.text = it.changePCTDay
+                        tvChangePctHourDesc.text = it.changePctHour
+                        tvChangePct24HourDesc.text = it.changePCT24Hour
+                        tvMktcapDesc.text = it.mktCap
+                        tvSupplyDesc.text = it.supply
+                        tvMarketDesc.text = it.market
+                        tvLastMarketDesc.text = it.lastMarket
+                        tvLastTradeIdDesc.text = it.lastTradeId
 
                         fmLoading.visibility = View.GONE
 
@@ -121,24 +145,22 @@ class CoinDetailActivity : AppCompatActivity() {
 
     private fun setPreviewLink(url: String) {
         val disposable = getJSOUPContent(url)
-            ?.subscribeOn(Schedulers.newThread())
-            ?.observeOn(AndroidSchedulers.mainThread())
-            ?.retry()
-            ?.subscribe({ result ->
-                val metaTags = result?.getElementsByTag("meta")
-                if (metaTags != null) {
-                    for (element in metaTags)
-                        when {
-                            element.attr("property").equals("og:title") -> {
-                                linkViewBinding.tvLinkTitle.text = element.attr("content")
-                            }
-                            element.attr("property").equals("og:description") -> {
-                                linkViewBinding.tvLinkDescription.text = element.attr("content")
-                            }
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .retry()
+            .subscribe({ result ->
+                val metaTags = result.getElementsByTag("meta")
+                for (element in metaTags)
+                    when {
+                        element.attr("property").equals("og:title") -> {
+                            linkViewBinding.tvLinkTitle.text = element.attr("content")
                         }
-                    linkViewBinding.clLinkDetail.visibility = View.VISIBLE
-                    setLoading()
-                }
+                        element.attr("property").equals("og:description") -> {
+                            linkViewBinding.tvLinkDescription.text = element.attr("content")
+                        }
+                    }
+                linkViewBinding.clLinkDetail.visibility = View.VISIBLE
+                setLoading()
             },
                 { _ ->
                     linkViewBinding.clLinkDetail.visibility = View.GONE
@@ -185,8 +207,10 @@ class CoinDetailActivity : AppCompatActivity() {
         return result
     }
 
+
     companion object {
         private const val EXTRA_ID = "id"
+        lateinit var name: String
 
         fun newIntent(activity: Activity, view: View, id: String) {
             val intent =
@@ -200,5 +224,4 @@ class CoinDetailActivity : AppCompatActivity() {
             activity.startActivity(intent, options.toBundle())
         }
     }
-
 }

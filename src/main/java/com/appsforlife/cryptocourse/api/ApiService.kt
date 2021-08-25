@@ -1,7 +1,8 @@
 package com.appsforlife.cryptocourse.api
 
-import com.appsforlife.cryptocourse.pojo.CoinInfoListOfData
-import com.appsforlife.cryptocourse.pojo.CoinPriceInfoDisplayData
+import com.appsforlife.cryptocourse.models.CoinInfoListOfData
+import com.appsforlife.cryptocourse.models.CoinPriceInfoDisplayData
+import com.appsforlife.cryptocourse.models.ListNews
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -22,6 +23,12 @@ interface ApiService {
         @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String?,
         @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY
     ): Single<CoinPriceInfoDisplayData>
+
+    @GET("v2/news/")
+    fun getLastNews(
+        @Query(QUERY_PARAM_API_KEY) apiKey: String = API_KEY
+    ): Single<ListNews>
+
 
     companion object {
         private const val API_KEY =

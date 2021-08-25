@@ -16,27 +16,34 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_1"
+            android:id="@+id/guideline_left"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.3" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_2"
+            android:id="@+id/guideline_right"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.7" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_center"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_symbols_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Ƀ/$" />
 
@@ -44,9 +51,9 @@
             android:id="@+id/tv_price_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_symbols_desc"
             tools:text="$ 46,029.9" />
 
@@ -56,9 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/open_day"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_price_desc" />
 
@@ -67,8 +74,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_open_label"
             tools:text="$ 47,102.0" />
@@ -79,9 +86,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/high_day"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_open_desc" />
 
@@ -91,8 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorGreen"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_high_day_label"
             tools:text="$ 47,390.9" />
@@ -103,9 +110,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/low_day"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_high_day_desc" />
 
@@ -115,8 +122,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorRed"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_low_day_label"
             tools:text="$ 45,595.2" />
@@ -126,20 +133,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/open_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/tv_open_label"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1" />
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_open_hour_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_open_hour_label"
             tools:text="$ 45,082.6" />
 
@@ -149,10 +156,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/high_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_open_hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -161,9 +168,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorGreen"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_high_hour_label"
             tools:text="$ 44,324.0" />
 
@@ -173,10 +180,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/low_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@+id/tv_high_hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -185,9 +192,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorRed"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_low_hour_label"
             tools:text="$ 43,982.2" />
 
@@ -196,20 +203,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/open_24_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_open_label"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2" />
+            app:layout_constraintStart_toEndOf="@id/guideline_right" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_open24hour_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_open24hour_label"
             tools:text="$ 45,082.6" />
 
@@ -219,10 +226,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/high_hour_24"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_open24hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -231,9 +238,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorGreen"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_high24hour_label"
             tools:text="$ 46,025.9" />
 
@@ -243,10 +250,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/low_24_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_high24hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -255,9 +262,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
             android:textColor="@color/colorRed"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_low24hour_label"
             tools:text="$ 43,963.9" />
 
@@ -267,9 +274,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/change_day"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_low_day_desc" />
 
@@ -278,7 +285,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_change_day_label"
             tools:text="$ -476.14" />
@@ -289,10 +297,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/change_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_low_hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -300,9 +308,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_change_hour_label"
             tools:text="$ 159.56" />
 
@@ -312,9 +320,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/change_24_hour"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_low24hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -322,11 +331,83 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_change24hour_label"
             tools:text="$ -846.20" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct_day_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/change_pct_day"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_day_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct_day_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_pct_day_label"
+            tools:text="5.11" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct_hour_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/change_pct_hour_label"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_hour_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct_hour_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_pct_hour_label"
+            tools:text="$ -194.56" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct24_hour_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/change_pct24_hour"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_change24hour_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_change_pct24_hour_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@+id/tv_change_pct24_hour_label"
+            tools:text="Ƀ 35,556.6" />
+
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_volume_day_label"
@@ -334,19 +415,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/volume_day"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_change_day_desc" />
+            app:layout_constraintTop_toBottomOf="@id/tv_change_pct_day_desc" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_volume_day_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_volume_day_label"
             tools:text="Ƀ 6,100.37" />
@@ -357,20 +438,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/volume_hour"
-            android:textSize="14sp"
+            android:textSize="11sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
-            app:layout_constraintTop_toBottomOf="@id/tv_change_hour_desc" />
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_pct_day_desc" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_volume_hour_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
-            app:layout_constraintEnd_toStartOf="@id/guideline_2"
-            app:layout_constraintStart_toEndOf="@id/guideline_1"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
             app:layout_constraintTop_toBottomOf="@id/tv_volume_hour_label"
             tools:text="Ƀ 1,286.08" />
 
@@ -380,21 +461,141 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:text="@string/volume_24_hour"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
-            app:layout_constraintTop_toBottomOf="@id/tv_change24hour_desc" />
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_change_pct24_hour_desc" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_volume24hour_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="1dp"
-            android:textSize="13sp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/guideline_2"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
             app:layout_constraintTop_toBottomOf="@id/tv_volume24hour_label"
             tools:text="Ƀ 35,556.6" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mktcap_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/market_capitalisation"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_market_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_mktcap_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toStartOf="@id/guideline_center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_mktcap_label"
+            tools:text="$ 912.83 B" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_supply_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/supply"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@id/tv_market_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_supply_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_center"
+            app:layout_constraintTop_toBottomOf="@id/tv_supply_label"
+            tools:text="Ƀ 18,794,193.0" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_market_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/market"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_volume_day_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_market_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintEnd_toStartOf="@id/guideline_left"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_market_label"
+            tools:text="CryptoCompare Index" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_last_market_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/last_market"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_volume_hour_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_last_market_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@id/guideline_right"
+            app:layout_constraintStart_toEndOf="@id/guideline_left"
+            app:layout_constraintTop_toBottomOf="@id/tv_last_market_label"
+            tools:text="binanceusa" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_last_trade_id_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/last_trade_id"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_volume_hour_desc" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_last_trade_id_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/guideline_right"
+            app:layout_constraintTop_toBottomOf="@id/tv_last_trade_id_label"
+            tools:text="aa1giddl500bpt93" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
-import android.widget.Toast
+import android.view.animation.LayoutAnimationController
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.appsforlife.cryptocourse.R
@@ -26,6 +26,8 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
     private lateinit var viewModel: CoinViewModel
 
+    private lateinit var animation: LayoutAnimationController
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,15 +38,16 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
         val adapter = CoinInfoAdapter(this)
         binding.rvTopList.adapter = adapter
-        val animation = AnimationUtils.loadLayoutAnimation(
+        animation = AnimationUtils.loadLayoutAnimation(
             context,
             R.anim.slide_from_bottom_layout
         )
 
+        mainActivity.binding.toolBarMain.title = getString(R.string.crypto_courses)
+
         viewModel = ViewModelProvider(this).get(CoinViewModel::class.java)
         viewModel.priceList.observe(viewLifecycleOwner, {
             adapter.setData(it)
-            Toast.makeText(activity, "" + it.size, Toast.LENGTH_LONG).show()
             if (flag == 1) {
                 binding.rvTopList.layoutAnimation = animation
                 flag = 2
@@ -53,7 +56,6 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
         return binding.root
     }
-
 
     override fun onDestroyView() {
         super.onDestroyView()

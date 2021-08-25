@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Crypto course</string>
+    <string name="app_name">Crypto courses and news</string>
     <string name="top_list">Top 100</string>
     <string name="last_news">Last news</string>
     <string name="symbols">%s / %s</string>
@@ -22,4 +22,16 @@
     <string name="volume_day">Volume day</string>
     <string name="volume_hour">Volume hour</string>
     <string name="volume_24_hour">Volume 24 hour</string>
+    <string name="change_pct_day">Change PCT day</string>
+    <string name="change_pct_hour_label">Change PCT hour</string>
+    <string name="change_pct24_hour">Change PCT 24 hour</string>
+    <string name="market_capitalisation">Market capitalisation</string>
+    <string name="market">Market</string>
+    <string name="supply">Supply</string>
+    <string name="last_market">Last market</string>
+    <string name="source">Source:</string>
+    <string name="crypto_courses">Crypto courses</string>
+    <string name="crypto_news">Crypto news</string>
+    <string name="categories">Categories:</string>
+    <string name="last_trade_id">Last trade id</string>
 </resources>

@@ -1,8 +1,8 @@
-package com.appsforlife.cryptocourse.pojo
+package com.appsforlife.cryptocourse.models
 
 import com.google.gson.annotations.SerializedName
 
 data class CoinInfoListOfData(
     @SerializedName("Data")
-    val data: List<Datum>? = null
+    val datumCoins: List<DatumCoins>
 )

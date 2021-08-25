@@ -1,9 +1,9 @@
-package com.appsforlife.cryptocourse.pojo
+package com.appsforlife.cryptocourse.models
 
 import com.google.gson.JsonObject
 import com.google.gson.annotations.SerializedName
 
 data class CoinPriceInfoDisplayData (
     @SerializedName("DISPLAY")
-    val coinPriceInfoJsonObject: JsonObject? = null
+    val coinPriceInfoJsonObject: JsonObject
 )

@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.appsforlife.cryptocourse.api.ApiFactory
 import com.appsforlife.cryptocourse.database.AppDatabase
-import com.appsforlife.cryptocourse.pojo.CoinInfo
+import com.appsforlife.cryptocourse.models.CoinInfo
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
 
@@ -22,13 +22,14 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     init {
-        loadData()
+        loadTopCoins()
     }
 
-    private fun loadData() {
+    private fun loadTopCoins() {
         val disposable = ApiFactory.apiService.getTopCoins()
-            .map { it -> it.data?.map { it.coinInfo } }
+            .map { it -> it.datumCoins?.map { it.coinInfo } }
             .subscribeOn(Schedulers.io())
+            .retry()
             .subscribe({
                 db.coinPriceInfoDao().insertCoinList(it)
                 Log.d("LOAD_DATA", "Success $it")
