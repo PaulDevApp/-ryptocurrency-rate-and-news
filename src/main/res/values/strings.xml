@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Crypto courses and news</string>
+    <string name="app_name">Cryptocurrency rate and news</string>
     <string name="top_list">Top 100</string>
     <string name="last_news">Last news</string>
     <string name="symbols">%s / %s</string>
