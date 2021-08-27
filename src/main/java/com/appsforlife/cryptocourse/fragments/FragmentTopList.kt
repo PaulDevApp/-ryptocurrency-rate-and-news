@@ -21,11 +21,8 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
     private var _binding: FragmentTopListBinding? = null
     private val binding get() = _binding!!
-
     private lateinit var mainActivity: MainActivity
-
     private lateinit var viewModel: CoinViewModel
-
     private lateinit var animation: LayoutAnimationController
 
     override fun onCreateView(

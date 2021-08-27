@@ -5,8 +5,9 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.appsforlife.cryptocourse.models.CoinInfo
+import com.appsforlife.cryptocourse.models.News
 
-@Database(entities = [CoinInfo::class], version = 1, exportSchema = false)
+@Database(entities = [CoinInfo::class, News::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     companion object {
         private var db: AppDatabase? = null
@@ -20,7 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
                     context,
                     AppDatabase::class.java,
                     DB_NAME
-                ).build()
+                ).allowMainThreadQueries().build()
                 db = instance
                 return instance
             }
@@ -28,4 +29,5 @@ abstract class AppDatabase : RoomDatabase() {
     }
 
     abstract fun coinPriceInfoDao(): CoinDao
+    abstract fun newsDao(): NewsDao
 }

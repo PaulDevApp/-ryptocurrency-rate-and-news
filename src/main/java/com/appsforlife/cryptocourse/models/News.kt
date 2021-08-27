@@ -1,9 +1,13 @@
 package com.appsforlife.cryptocourse.models
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.appsforlife.cryptocourse.utils.setTime
 import com.google.gson.annotations.SerializedName
 
+@Entity(tableName = "news_list")
 data class News(
+    @PrimaryKey
     @SerializedName("id")
     val id: String,
     @SerializedName("body")

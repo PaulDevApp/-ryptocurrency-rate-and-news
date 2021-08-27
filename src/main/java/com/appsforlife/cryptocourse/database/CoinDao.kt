@@ -17,6 +17,8 @@ interface CoinDao {
     fun getDetail(id: String): LiveData<CoinInfo>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertCoinList(coinList: List<CoinInfo?>?)
+    fun insertCoinList(coinList: List<CoinInfo>)
+
+
 
 }
