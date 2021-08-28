@@ -38,8 +38,11 @@ implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'  
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'  
 ##### Screen list
-![Alt-текст](https://user-images.githubusercontent.com/62378496/130877468-94b5dd50-bc24-4b73-852b-a51c999a9ed7.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/130877470-1998fe30-b8a6-4d62-bf4d-78361071171b.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/130877471-a391e21e-076d-4a76-b6f7-be9561d9429d.png)
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131232167-10cd52d9-cfec-4b1d-8aa8-a6443b778738.png)
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131232168-f792038b-6ab9-466e-9dee-26e84654be96.png)
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131232169-48cc27a1-1707-44b5-a6e4-1841166936c5.png)
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131232170-be8d2395-0276-453d-8c06-caeab7e85c40.png)
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131232171-6fb618af-0d04-43e5-aaa1-b7d0fa8d8709.png)
+
 
 
