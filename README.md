@@ -1,4 +1,4 @@
-# Сryptocurrencies and news
+# Cryptocurrency rate and news
 Top 100 crypto currencies, prices and latest news
 ## Key features:
 _latest news_    
