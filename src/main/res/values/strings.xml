@@ -34,4 +34,5 @@
     <string name="crypto_news">Last news</string>
     <string name="categories">Categories:</string>
     <string name="last_trade_id">Last trade id</string>
+    <string name="no_internet_connection">No internet connection</string>
 </resources>

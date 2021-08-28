@@ -12,6 +12,7 @@ import com.appsforlife.cryptocourse.R
 import com.appsforlife.cryptocourse.activities.MainActivity
 import com.appsforlife.cryptocourse.adapters.CoinNewsAdapter
 import com.appsforlife.cryptocourse.databinding.FragmentNewsBinding
+import com.appsforlife.cryptocourse.utils.NetworkConnection
 import com.appsforlife.cryptocourse.viewmodel.NewsViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -30,6 +31,7 @@ class FragmentNews : Fragment() {
     ): View {
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
 
+
         val adapter = CoinNewsAdapter()
         binding.rvLastNews.adapter = adapter
         animation = AnimationUtils.loadLayoutAnimation(
@@ -38,6 +40,15 @@ class FragmentNews : Fragment() {
         )
 
         mainActivity = activity as MainActivity
+
+        val networkConnection = NetworkConnection(mainActivity)
+        networkConnection.observe(viewLifecycleOwner, {
+            if (it) {
+                binding.tvConnect.visibility = View.GONE
+            } else {
+                binding.tvConnect.visibility = View.VISIBLE
+            }
+        })
 
         mainActivity.binding.toolBarMain.title = getString(R.string.crypto_news)
 
@@ -52,7 +63,9 @@ class FragmentNews : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner, {
             if (!it) {
-                binding.lottieNewsLoading.visibility = View.GONE
+                binding.fmLoadingNews.visibility = View.GONE
+            } else {
+                binding.fmLoadingNews.visibility = View.VISIBLE
             }
         })
 

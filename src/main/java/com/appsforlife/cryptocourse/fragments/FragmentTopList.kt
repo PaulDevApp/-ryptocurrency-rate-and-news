@@ -14,6 +14,7 @@ import com.appsforlife.cryptocourse.activities.MainActivity
 import com.appsforlife.cryptocourse.adapters.CoinInfoAdapter
 import com.appsforlife.cryptocourse.databinding.FragmentTopListBinding
 import com.appsforlife.cryptocourse.listeners.CoinClickListener
+import com.appsforlife.cryptocourse.utils.NetworkConnection
 import com.appsforlife.cryptocourse.viewmodel.CoinViewModel
 
 
@@ -32,6 +33,15 @@ class FragmentTopList : Fragment(), CoinClickListener {
         _binding = FragmentTopListBinding.inflate(inflater, container, false)
 
         mainActivity = activity as MainActivity
+
+        val networkConnection = NetworkConnection(mainActivity)
+        networkConnection.observe(viewLifecycleOwner, {
+            if (it) {
+                binding.tvConnect.visibility = View.GONE
+            } else {
+                binding.tvConnect.visibility = View.VISIBLE
+            }
+        })
 
         val adapter = CoinInfoAdapter(this)
         binding.rvTopList.adapter = adapter
@@ -52,8 +62,10 @@ class FragmentTopList : Fragment(), CoinClickListener {
         })
 
         viewModel.isLoading.observe(viewLifecycleOwner, {
-            if (!it){
-                binding.lottieTopLoading.visibility = View.GONE
+            if (!it) {
+                binding.fmLoadingCoins.visibility = View.GONE
+            } else {
+                binding.fmLoadingCoins.visibility = View.VISIBLE
             }
         })
 
