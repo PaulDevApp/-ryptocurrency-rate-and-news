@@ -11,21 +11,21 @@ data class CoinInfo(
     @SerializedName("Id")
     val id: String,
     @SerializedName("Name")
-    val name: String? = null,
+    val name: String,
     @SerializedName("FullName")
-    val fullName: String? = null,
+    val fullName: String,
     @SerializedName("ImageUrl")
-    val imageUrl: String? = null,
+    val imageUrl: String,
     @SerializedName("Url")
-    val url: String? = null,
+    val url: String,
     @SerializedName("Algorithm")
-    val algorithm: String? = null,
+    val algorithm: String,
     @SerializedName("ProofType")
-    val proofType: String? = null,
+    val proofType: String,
     @SerializedName("DocumentType")
-    val documentType: String? = null,
+    val documentType: String,
     @SerializedName("AssetLaunchDate")
-    val assetLaunchDate: String? = null
+    val assetLaunchDate: String
 
 ) {
     fun getFullImageURL(): String {

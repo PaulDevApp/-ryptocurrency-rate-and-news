@@ -50,6 +50,12 @@ class FragmentNews : Fragment() {
             }
         })
 
+        viewModel.isLoading.observe(viewLifecycleOwner, {
+            if (!it) {
+                binding.lottieNewsLoading.visibility = View.GONE
+            }
+        })
+
         return binding.root
     }
 

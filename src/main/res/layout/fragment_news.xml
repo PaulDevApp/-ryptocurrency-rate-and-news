@@ -16,4 +16,14 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/item_news"/>
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_news_loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/bitcoin_loading" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ import com.appsforlife.cryptocourse.models.News
 @Dao
 interface NewsDao {
 
-    @Query("SELECT * FROM news_list")
+    @Query("SELECT * FROM news_list ORDER by published_on DESC")
     fun getNewsList(): LiveData<List<News>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

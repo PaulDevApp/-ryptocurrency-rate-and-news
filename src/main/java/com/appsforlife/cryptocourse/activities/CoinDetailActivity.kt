@@ -36,6 +36,7 @@ class CoinDetailActivity : AppCompatActivity() {
     private lateinit var coinFullPriceBinding: CoinFullPriceBinding
     private lateinit var linkViewBinding: LinkViewLayoutBinding
     private lateinit var id: String
+    private lateinit var coinPriceInfo: CoinPriceInfo
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,8 +71,8 @@ class CoinDetailActivity : AppCompatActivity() {
             }
             Glide.with(this).load(it.getFullImageURL()).into(mainDetailBinding.ivLogo)
             linkViewBinding.tvLinkUrl.text = it.getFullCoinUrl()
-            it.name?.let { name -> getFullListPrice(name) }
-            it.url?.let { _ -> setPreviewLink(it.getFullCoinUrl()) }
+            getFullListPrice(it.name)
+            setPreviewLink(it.getFullCoinUrl())
 
             mainDetailBinding.ivLogo.drawable?.let {
                 val bitmap = (it as BitmapDrawable).bitmap
@@ -98,41 +99,39 @@ class CoinDetailActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe({
-                if (it != null) {
-                    with(coinFullPriceBinding) {
-                        tvSymbolsDesc.text = String.format(
-                            getString(com.appsforlife.cryptocourse.R.string.symbols),
-                            it.fromSymbol,
-                            it.toSymbol
-                        )
-                        tvPriceDesc.text = it.price
-                        tvOpenDesc.text = it.openDay
-                        tvHighDayDesc.text = it.highDay
-                        tvLowDayDesc.text = it.lowDay
-                        tvLowHourDesc.text = it.lowHour
-                        tvHighHourDesc.text = it.highHour
-                        tvOpenHourDesc.text = it.openHour
-                        tvHigh24hourDesc.text = it.high24Hour
-                        tvLow24hourDesc.text = it.low24Hour
-                        tvOpen24hourDesc.text = it.open24Hour
-                        tvChangeDayDesc.text = it.changeDay
-                        tvChangeHourDesc.text = it.changeHour
-                        tvChange24hourDesc.text = it.change24Hour
-                        tvVolumeDayDesc.text = it.volumeDay
-                        tvVolumeHourDesc.text = it.volumeHour
-                        tvVolume24hourDesc.text = it.volume24Hour
-                        tvChangePctDayDesc.text = it.changePCTDay
-                        tvChangePctHourDesc.text = it.changePctHour
-                        tvChangePct24HourDesc.text = it.changePCT24Hour
-                        tvMktcapDesc.text = it.mktCap
-                        tvSupplyDesc.text = it.supply
-                        tvMarketDesc.text = it.market
-                        tvLastMarketDesc.text = it.lastMarket
-                        tvLastTradeIdDesc.text = it.lastTradeId
+                with(coinFullPriceBinding) {
+                    tvSymbolsDesc.text = String.format(
+                        getString(com.appsforlife.cryptocourse.R.string.symbols),
+                        it.fromSymbol,
+                        it.toSymbol
+                    )
+                    tvPriceDesc.text = it.price
+                    tvOpenDesc.text = it.openDay
+                    tvHighDayDesc.text = it.highDay
+                    tvLowDayDesc.text = it.lowDay
+                    tvLowHourDesc.text = it.lowHour
+                    tvHighHourDesc.text = it.highHour
+                    tvOpenHourDesc.text = it.openHour
+                    tvHigh24hourDesc.text = it.high24Hour
+                    tvLow24hourDesc.text = it.low24Hour
+                    tvOpen24hourDesc.text = it.open24Hour
+                    tvChangeDayDesc.text = it.changeDay
+                    tvChangeHourDesc.text = it.changeHour
+                    tvChange24hourDesc.text = it.change24Hour
+                    tvVolumeDayDesc.text = it.volumeDay
+                    tvVolumeHourDesc.text = it.volumeHour
+                    tvVolume24hourDesc.text = it.volume24Hour
+                    tvChangePctDayDesc.text = it.changePCTDay
+                    tvChangePctHourDesc.text = it.changePctHour
+                    tvChangePct24HourDesc.text = it.changePCT24Hour
+                    tvMktcapDesc.text = it.mktCap
+                    tvSupplyDesc.text = it.supply
+                    tvMarketDesc.text = it.market
+                    tvLastMarketDesc.text = it.lastMarket
+                    tvLastTradeIdDesc.text = it.lastTradeId
 
-                        fmLoading.visibility = View.GONE
+                    fmLoading.visibility = View.GONE
 
-                    }
                 }
                 Log.d("LOAD_DETAIL", "Success $it")
             }, {
@@ -162,7 +161,7 @@ class CoinDetailActivity : AppCompatActivity() {
                 linkViewBinding.clLinkDetail.visibility = View.VISIBLE
                 setLoading()
             },
-                { _ ->
+                {
                     linkViewBinding.clLinkDetail.visibility = View.GONE
                     setLoading()
                 })
@@ -189,28 +188,29 @@ class CoinDetailActivity : AppCompatActivity() {
 
     private fun getPriceListFromRawData(
         coinPriceInfoDisplayData: CoinPriceInfoDisplayData
-    ): CoinPriceInfo? {
-        var result: CoinPriceInfo? = null
-        val jsonObject = coinPriceInfoDisplayData.coinPriceInfoJsonObject ?: return null
-        val coinKeySet = jsonObject.keySet()
-        for (coinKey in coinKeySet) {
-            val currencyJson = jsonObject.getAsJsonObject(coinKey)
-            val currencyKeySet = currencyJson.keySet()
-            for (currencyKey in currencyKeySet) {
-                val priceInfo = Gson().fromJson(
-                    currencyJson.getAsJsonObject(currencyKey),
-                    CoinPriceInfo::class.java
-                )
-                result = priceInfo
+    ): CoinPriceInfo {
+        val jsonObject = coinPriceInfoDisplayData.coinPriceInfoJsonObject
+        val coinKeySet = jsonObject?.keySet()
+        if (coinKeySet != null) {
+            for (coinKey in coinKeySet) {
+                val currencyJson = jsonObject.getAsJsonObject(coinKey)
+                val currencyKeySet = currencyJson.keySet()
+                for (currencyKey in currencyKeySet) {
+                    val priceInfo = Gson().fromJson(
+                        currencyJson.getAsJsonObject(currencyKey),
+                        CoinPriceInfo::class.java
+                    )
+                    coinPriceInfo = priceInfo
+                }
             }
         }
-        return result
+        return coinPriceInfo
     }
 
 
     companion object {
+
         private const val EXTRA_ID = "id"
-        lateinit var name: String
 
         fun newIntent(activity: Activity, view: View, id: String) {
             val intent =

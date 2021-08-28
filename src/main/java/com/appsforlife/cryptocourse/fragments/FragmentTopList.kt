@@ -51,6 +51,12 @@ class FragmentTopList : Fragment(), CoinClickListener {
             }
         })
 
+        viewModel.isLoading.observe(viewLifecycleOwner, {
+            if (!it){
+                binding.lottieTopLoading.visibility = View.GONE
+            }
+        })
+
         return binding.root
     }
 

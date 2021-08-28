@@ -9,11 +9,23 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_top_list"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_coin"/>
+        android:layout_marginBottom="20dp"
+        tools:listitem="@layout/item_coin" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottie_top_loading"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/bitcoin_loading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

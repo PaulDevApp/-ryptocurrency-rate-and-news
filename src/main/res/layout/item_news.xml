@@ -19,7 +19,9 @@
             android:layout_height="85dp"
             android:adjustViewBounds="true"
             android:contentDescription="@string/app_name"
-            android:padding="3dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="5dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/ic_bitcoin" />
@@ -27,15 +29,14 @@
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_item_title"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="3"
-            android:textSize="16sp"
+            android:maxLines="2"
+            android:textSize="15sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/tv_item_categories_label"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_item_image"
-            app:layout_constraintTop_toTopOf="@id/iv_item_image"
+            app:layout_constraintTop_toTopOf="parent"
             tools:text="@tools:sample/lorem/random" />
 
         <com.google.android.material.textview.MaterialTextView
@@ -57,8 +58,33 @@
             android:maxLines="1"
             android:textSize="13sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_item_categories_label"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tv_item_categories_label"
             tools:text="ETH|Market|Trading|Altcoin" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_source_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:text="@string/source"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tv_item_categories_label"
+            app:layout_constraintStart_toEndOf="@id/iv_item_image" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_item_source_desc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/tv_item_source_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_item_source_label"
+            tools:text="@tools:sample/lorem/random" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_item_body"
@@ -66,7 +92,6 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="6"
-            android:paddingBottom="1dp"
             android:textSize="14sp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,52 +99,29 @@
             tools:text="@tools:sample/lorem/random" />
 
         <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_published"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_body"
+            tools:text="23:15:49" />
+
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_item_url"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:textColor="?attr/colorAccent"
             android:textSize="13sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_item_body"
-            tools:text="https://ambcrypto.com/ethereum-waves-filecoin-price-analysis-23-august/" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_published"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_item_source_label"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:text="23:15:49" />
-
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_item_source_label"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/source"
-            android:textSize="13sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_item_url" />
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/tv_item_source_desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="2dp"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:textSize="13sp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_item_source_label"
+            app:layout_constraintBottom_toBottomOf="@id/tv_published"
             app:layout_constraintEnd_toStartOf="@id/tv_published"
-            app:layout_constraintStart_toEndOf="@id/tv_item_source_label"
-            tools:text="@tools:sample/lorem/random" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="https://ambcrypto.com/ethereum-waves-filecoin-price-analysis-23-august/" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

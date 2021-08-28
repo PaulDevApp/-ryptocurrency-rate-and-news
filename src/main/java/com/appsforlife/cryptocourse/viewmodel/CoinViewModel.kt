@@ -4,6 +4,7 @@ import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.appsforlife.cryptocourse.api.ApiFactory
 import com.appsforlife.cryptocourse.database.AppDatabase
 import com.appsforlife.cryptocourse.models.CoinInfo
@@ -14,6 +15,8 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = AppDatabase.getInstance(application)
     private val compositeDisposable = CompositeDisposable()
+
+    var isLoading = MutableLiveData<Boolean>()
 
     val priceList = db.coinPriceInfoDao().getPriceList()
 
@@ -31,10 +34,12 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
             .subscribeOn(Schedulers.io())
             .retry()
             .subscribe({
+                isLoading.postValue(false)
                 db.coinPriceInfoDao().insertCoinList(it)
                 Log.d("LOAD_DATA", "Success $it")
             }, {
                 Log.d("LOAD_DATA", "Failure ${it.message}")
+                isLoading.postValue(false)
             })
         compositeDisposable.add(disposable)
     }
@@ -43,5 +48,4 @@ class CoinViewModel(application: Application) : AndroidViewModel(application) {
         super.onCleared()
         compositeDisposable.dispose()
     }
-
 }

@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class CoinPriceInfoDisplayData (
     @SerializedName("DISPLAY")
-    val coinPriceInfoJsonObject: JsonObject
+    val coinPriceInfoJsonObject: JsonObject? = null
 )

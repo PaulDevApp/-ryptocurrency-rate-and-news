@@ -3,6 +3,7 @@ package com.appsforlife.cryptocourse.viewmodel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import com.appsforlife.cryptocourse.api.ApiFactory
 import com.appsforlife.cryptocourse.database.AppDatabase
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -13,6 +14,8 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val db = AppDatabase.getInstance(application)
     private val compositeDisposable = CompositeDisposable()
+
+    var isLoading = MutableLiveData<Boolean>()
 
     val newsList = db.newsDao().getNewsList()
 
@@ -28,8 +31,10 @@ class NewsViewModel(application: Application) : AndroidViewModel(application) {
             .retry()
             .subscribe({
                 db.newsDao().insertNews(it)
+                isLoading.postValue(false)
                 Log.d("LOAD_NEWS", it.toString())
             }, {
+                isLoading.postValue(true)
                 Log.d("LOAD_NEWS", "Failure ${it.message}")
             })
         compositeDisposable.addAll(disposable)

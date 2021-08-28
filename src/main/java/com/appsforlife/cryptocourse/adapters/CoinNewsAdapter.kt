@@ -53,17 +53,17 @@ class CoinNewsAdapter : RecyclerView.Adapter<CoinNewsAdapter.CoinNewsViewHolder>
                 cardView.context.startActivity(i)
             }
 
-            if (TextUtils.isEmpty(tvItemBody.text)){
+            if (TextUtils.isEmpty(tvItemBody.text)) {
                 tvItemBody.visibility = View.GONE
             }
         }
     }
 
-    private fun createPalette(bitmap: Bitmap, holder:CoinNewsViewHolder) {
+    private fun createPalette(bitmap: Bitmap, holder: CoinNewsViewHolder) {
         Palette.from(bitmap).generate { palette ->
             val swatch = palette?.vibrantSwatch
             if (swatch != null) {
-                holder.binding.tvItemTitle.setTextColor(swatch.rgb)
+                holder.binding.tvItemSourceDesc.setTextColor(swatch.rgb)
             }
         }
     }

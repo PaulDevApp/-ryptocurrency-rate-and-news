@@ -30,8 +30,8 @@
     <string name="supply">Supply</string>
     <string name="last_market">Last market</string>
     <string name="source">Source:</string>
-    <string name="crypto_courses">Crypto courses</string>
-    <string name="crypto_news">Crypto news</string>
+    <string name="crypto_courses">Cryptocurrency rate</string>
+    <string name="crypto_news">Last news</string>
     <string name="categories">Categories:</string>
     <string name="last_trade_id">Last trade id</string>
 </resources>
