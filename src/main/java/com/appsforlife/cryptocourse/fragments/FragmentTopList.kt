@@ -38,8 +38,10 @@ class FragmentTopList : Fragment(), CoinClickListener {
         networkConnection.observe(viewLifecycleOwner, {
             if (it) {
                 binding.tvConnect.visibility = View.GONE
+                binding.fmLoadingCoins.visibility = View.GONE
             } else {
                 binding.tvConnect.visibility = View.VISIBLE
+                binding.fmLoadingCoins.visibility = View.VISIBLE
             }
         })
 
@@ -63,9 +65,9 @@ class FragmentTopList : Fragment(), CoinClickListener {
 
         viewModel.isLoading.observe(viewLifecycleOwner, {
             if (!it) {
-                binding.fmLoadingCoins.visibility = View.GONE
+                binding.lottieCoinsLoading.visibility = View.GONE
             } else {
-                binding.fmLoadingCoins.visibility = View.VISIBLE
+                binding.lottieCoinsLoading.visibility = View.VISIBLE
             }
         })
 

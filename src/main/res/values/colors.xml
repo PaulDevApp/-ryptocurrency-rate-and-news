@@ -12,6 +12,6 @@
     <color name="colorAccentNight">#E7C554</color>
     <color name="colorGreen">#1A6A00</color>
     <color name="colorRed">#A53D58</color>
-    <color name="colorBackgroundLoadingDay">#BFD0DAC9</color>
-    <color name="colorBackgroundLoadingNight">#BF091301</color>
+    <color name="colorBackgroundLoadingDay">#99D0DAC9</color>
+    <color name="colorBackgroundLoadingNight">#99091301</color>
 </resources>

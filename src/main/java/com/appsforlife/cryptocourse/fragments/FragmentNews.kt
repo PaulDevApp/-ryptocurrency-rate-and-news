@@ -45,8 +45,10 @@ class FragmentNews : Fragment() {
         networkConnection.observe(viewLifecycleOwner, {
             if (it) {
                 binding.tvConnect.visibility = View.GONE
+                binding.fmLoadingNews.visibility = View.GONE
             } else {
                 binding.tvConnect.visibility = View.VISIBLE
+                binding.fmLoadingNews.visibility = View.VISIBLE
             }
         })
 
@@ -63,9 +65,9 @@ class FragmentNews : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner, {
             if (!it) {
-                binding.fmLoadingNews.visibility = View.GONE
+                binding.lottieNewsLoading.visibility = View.GONE
             } else {
-                binding.fmLoadingNews.visibility = View.VISIBLE
+                binding.lottieNewsLoading.visibility = View.VISIBLE
             }
         })
 
