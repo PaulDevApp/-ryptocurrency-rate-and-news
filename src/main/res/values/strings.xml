@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cryptocurrency rate and news</string>
+    <string name="app_name">Cryptocurrencies and news</string>
     <string name="top_list">Top 100</string>
     <string name="last_news">Last news</string>
     <string name="symbols">%s / %s</string>
@@ -30,8 +30,8 @@
     <string name="supply">Supply</string>
     <string name="last_market">Last market</string>
     <string name="source">Source:</string>
-    <string name="crypto_courses">Cryptocurrency rate</string>
-    <string name="crypto_news">Last news</string>
+    <string name="crypto_courses">Cryptocurrencies</string>
+    <string name="crypto_news">News</string>
     <string name="categories">Categories:</string>
     <string name="last_trade_id">Last trade id</string>
     <string name="no_internet_connection">No internet connection</string>
