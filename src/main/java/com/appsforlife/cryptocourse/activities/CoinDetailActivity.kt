@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityOptionsCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.palette.graphics.Palette
 import com.appsforlife.cryptocourse.api.ApiFactory
@@ -40,6 +41,8 @@ class CoinDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        installSplashScreen()
 
         binding = ActivityCoinDetailBinding.inflate(layoutInflater)
         mainDetailBinding = binding.incMain
