@@ -28,13 +28,8 @@ _all data provided by the source https://www.cryptocompare.com/_
     implementation 'com.github.bumptech.glide:glide:4.12.0'  
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'  
     implementation "androidx.core:core-splashscreen:1.0.0-alpha01"
-##### Screen list
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478929-6ab3c12c-7acb-473c-a98a-8fdeac9f3dff.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478951-45c6fc20-2330-4d6d-88a7-47b263df9a80.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478953-5049b0af-7617-4f6e-877e-8ba7f1a452ae.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478956-0e6364e8-f599-4d4c-8db9-a68868d5ea7d.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478955-744fa1d9-a69d-411b-a396-47559c873288.png)
-![Alt-текст](https://user-images.githubusercontent.com/62378496/131478957-ed9fb558-7662-4804-93ec-fb6aea232327.png)
+##### Screen
+![Alt-текст](https://user-images.githubusercontent.com/62378496/131479627-b4dabe12-1402-4fd5-bdab-00b31b2bf6fb.jpg)
 
 
 
