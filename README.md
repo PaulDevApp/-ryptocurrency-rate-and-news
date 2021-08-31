@@ -27,7 +27,9 @@ _all data provided by the source https://www.cryptocompare.com/_
     implementation 'androidx.cardview:cardview:1.0.0'  
     implementation 'com.github.bumptech.glide:glide:4.12.0'  
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'  
-    implementation "androidx.core:core-splashscreen:1.0.0-alpha01"
+    implementation "androidx.core:core-splashscreen:1.0.0-alpha01"  
+#### Download the app  
+https://play.google.com/store/apps/details?id=com.appsforlife.cryptocourse
 ##### Screen
 ![Alt-текст](https://user-images.githubusercontent.com/62378496/131479627-b4dabe12-1402-4fd5-bdab-00b31b2bf6fb.jpg)
 
